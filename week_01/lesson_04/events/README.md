@@ -1,0 +1,1 @@
+This is a short look into event handlers using a programme that checks if the password entered is the same as the password saved in the varibale 'correctPassword'. 
