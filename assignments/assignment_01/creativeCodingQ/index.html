@@ -7,8 +7,46 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
 
-    <script src="./script.js"></script>
-</body>
+    <h2>Welcome to your dateHelper!</h2>
+    <h4>No idea what to do with your significant other but they're always complaikning that you never take them out anymore! Plan a date here! </h4>
+    <h4>Lets start by answering a few questions about your partners interests!</h4>
+
+    <!-- Inputs start here -->
+    <!-- Activity Type -->
+   <div id="question1">
+            <label for="active">Active/Physical Dates</label>
+            <input type="radio" name="dateType" id="active" value="active" checked="checked">
+       
+            <label for="relaxing">Relaxing/Sitting dates</label>
+            <input type="radio" name="dateType" id="relaxing" value="relaxing">
+   </div>
+
+        <!-- Indoors or outdoors? -->
+ 
+        
+        <!-- <div id="question2">
+            <label for="indoors">Dates that are indoors</label>
+            <input type="radio" name="inOrOut" id="indoors" value="indoors">
+            
+            <label for="outdoors">Dates that are outdoors</label>
+            <input type="radio" name="inOrOut" id="outdoors" value="outdoors">
+        </div>
+         -->
+
+        <!-- Next button will change the create new question to secure next answer -->
+
+<!-- Test -->
+
+
+      <!-- This is the container for the options -->
+      <h3 id="questionSubtext"></h3>  
+      <ol id="list-container"></ol>
+        
+
+        <button id="next1">Next</button>
+        
+        <script src="./options.js"></script>
+        <script src="./script.js"></script>
+    </body>
 </html>
