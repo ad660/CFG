@@ -23,18 +23,31 @@ nextBtn.addEventListener('click', () => {
             let inOrOut = document.createElement('button')
             inOrOut.textContent = option
             liContainer.append(inOrOut)
-            console.log(liContainer.innerText)
+            
+            inOrOut.addEventListener('click', () => {
+                buttonContents = inOrOut.textContent
+                console.log(buttonContents)
+                if (buttonContents === 'Indoors') {
+                    console.log('you clicked indoors')
+                }
+                else {console.log('you clicked outdoors')}
+            })
+            console.log(inOrOut.value)
+            // console.log(liContainer.innerText)
+
+            // Hides the questions once asked 
             if (liContainer.textContent === 'IndoorsOutdoors') {
-                console.log('true')
-                subtext.textContent = ''
+                // console.log('true')
+                subtext.textContent = dateQuestions[0].question_01
                 nextBtn.style.display = 'none'
                 firstQuestion.style.display = 'none'
             }
         });
     }
 
-    // console.log(question1)
 })
+
+
 
 
 // This is the code for looping through activities to pick 
