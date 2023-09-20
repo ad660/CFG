@@ -54,3 +54,7 @@ function displayActivities(activities) {
         });
     } 
 }
+
+
+var checkit = dateOptions.outdoor_activities[currentChoice === 'indoor' ? 'relaxingIndoorActivities' : 'relaxingOutdoorActivities']
+console.log(checkit)
