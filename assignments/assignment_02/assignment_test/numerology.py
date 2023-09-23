@@ -15,21 +15,29 @@ months = [
     "December"
 ]
 
+# Created this function to take the numbers passed into it and change them into a list that we can add together 
+
+def addNumbers(fullnumber):
+    fullnumber = 22
+
+    result = [int(x) for a,x in enumerate(str(fullnumber)) ]
+    print(result)
+
+
 def calcYear(birth_year):
     birth_year_list = list(birth_year)
     totalSum = 0
-    addedSum = 0
+
 
     for number in birth_year_list:
         totalSum += int(number)
-        while totalSum > 0:
-            digit = totalSum % 10
-            addedSum += digit
-            addedSum // 10
-        print(addedSum)
+    
+    addNumbers(totalSum)
+           
+
         # return totalSum
 
-calcYear()
+calcYear('1995')
     
 
 
