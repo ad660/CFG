@@ -17,6 +17,11 @@ months = [
 
 # Created this function to take the numbers passed into it and change them into a list that we can add together 
 
+def numerologyNumber(num):
+    querystring = {"n":{num}}
+    response = requests.get(url, headers=headers, params=querystring)
+    return response.json()
+
 def addNumbers(fullnumber):
     finalNumber = 0
 
@@ -45,6 +50,8 @@ def calcYear(birth_year):
     
 
 
+# def simpleMonth(janToOctober):
+#     monthResult =  
 
 
 def calcMonth(monthofBirth):
@@ -58,9 +65,12 @@ def calcMonth(monthofBirth):
                 listStringNum = list(stringNum) 
                 monthResult = int(listStringNum[0]) + int(listStringNum[1])
                 # print(f'Your month number is {monthResult}')
-                return monthResult
+                print(f'This is the result if you are born after october{monthResult}')
                 # Okay so this works to add together the numbers but I want to make a function that you can pass in a number and have it 
-            break
+            if (numberOfMonth < 10):
+                return monthResult if numberOfMonth >= 10 else numberOfMonth
+            else:
+                print('Invalid input')
      
             #  print('invalid input')
             #  print(month, monthofBirth)
@@ -84,40 +94,29 @@ def intro():
     print('First step is to reduce the numbers in your month. If you were born before November (11th month) your number will will stay the same')
     
     playerBirthMonth = input('Please enter what month you were both ').capitalize()
-    print(calcMonth(playerBirthMonth))
+    monthNum = calcMonth(playerBirthMonth)
+    print(monthNum)
 
     playerBirthYear = input('Please enter year in this format e.g. "1997" ')
-    print(calcYear(playerBirthYear))
+    yearNum = calcYear(playerBirthYear)
+    print(yearNum)
 
     # This will get the month of birth and convert it to its number by checking what index it matches to in the list above and cross referencing that to the index and adding 1. It adds 1 because the list starts at 0 and we want to make sure we get the number of the month.  
 
-    # monthofBirth = input('Please enter what month you were both').capitalize
-
-    # for month in months: 
-    #     if monthofBirth == month:            
-    #         print(f'month of birth is {months.index(month)} ')
-    #         numberOfMonth = months.index(month) + 1
-    #         print(f"Month number is {numberOfMonth}")
-
-    #         if (numberOfMonth > 10):
-    #             numberOfMonth.split(1, 1)
-    #         break
-    #     else: 
-    #         print('invalid input')
-    #         print(month, monthofBirth)
-
-
     dayOfBirth = int(input('Please enter the day of your birth e.g if you were both on the 12th please enter "12" '))
-    print(addNumbers(dayOfBirth))
+    dayNum = addNumbers(dayOfBirth)
+    print(dayNum)
+
+    lifePathNumberPreliminary = dayNum + monthNum + yearNum
+    lifePathNumber = addNumbers(lifePathNumberPreliminary)
+
+    print(f'Your life path number is {lifePathNumber}')
+    print(numerologyNumber(lifePathNumber))
 
 intro()
 
 
-def pickNumber():
-    userInput = int(input("Please pick a number "))
-    querystring = {"n":{userInput}}
-    response = requests.get(url, headers=headers, params=querystring)
-    print(response.json())
+
 
 
 # pickNumber()
