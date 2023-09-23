@@ -18,10 +18,14 @@ months = [
 # Created this function to take the numbers passed into it and change them into a list that we can add together 
 
 def addNumbers(fullnumber):
-    fullnumber = 22
+    finalNumber = 0
 
     result = [int(x) for a,x in enumerate(str(fullnumber)) ]
-    print(result)
+    for digit in result:
+        finalNumber += digit
+    return finalNumber
+
+    # print(result)
 
 
 def calcYear(birth_year):
@@ -32,12 +36,12 @@ def calcYear(birth_year):
     for number in birth_year_list:
         totalSum += int(number)
     
-    addNumbers(totalSum)
+    return addNumbers(totalSum)
            
 
         # return totalSum
 
-calcYear('1995')
+# calcYear('1995')
     
 
 
@@ -53,7 +57,8 @@ def calcMonth(monthofBirth):
                 stringNum = str(numberOfMonth)
                 listStringNum = list(stringNum) 
                 monthResult = int(listStringNum[0]) + int(listStringNum[1])
-                print(f'Your month number is {monthResult}')
+                # print(f'Your month number is {monthResult}')
+                return monthResult
                 # Okay so this works to add together the numbers but I want to make a function that you can pass in a number and have it 
             break
      
@@ -79,10 +84,10 @@ def intro():
     print('First step is to reduce the numbers in your month. If you were born before November (11th month) your number will will stay the same')
     
     playerBirthMonth = input('Please enter what month you were both ').capitalize()
-    calcMonth(playerBirthMonth)
+    print(calcMonth(playerBirthMonth))
 
     playerBirthYear = input('Please enter year in this format e.g. "1997" ')
-    calcYear(playerBirthYear)
+    print(calcYear(playerBirthYear))
 
     # This will get the month of birth and convert it to its number by checking what index it matches to in the list above and cross referencing that to the index and adding 1. It adds 1 because the list starts at 0 and we want to make sure we get the number of the month.  
 
@@ -103,8 +108,9 @@ def intro():
 
 
     dayOfBirth = int(input('Please enter the day of your birth e.g if you were both on the 12th please enter "12" '))
+    print(addNumbers(dayOfBirth))
 
-# intro()
+intro()
 
 
 def pickNumber():
