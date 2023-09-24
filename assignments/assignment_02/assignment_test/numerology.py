@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 
+# I have used the date time module as my additional module. You can install this using pip install datetime. 
+
 months = [
     "January",
     "February",
@@ -25,7 +27,7 @@ def writeFile(dictionary, lifepathNum):
     f.write(f'{dictionary} \n\n')
     f.write(currentTime)
 
-
+# This is where you can find the API key to test it yourself: https://rapidapi.com/Alejandro99aru/api/horoscope-astrology/
 
 url = "https://horoscope-astrology.p.rapidapi.com/numerology"
 
@@ -108,10 +110,15 @@ def calcMonth(monthofBirth):
 def intro():
     print('Your birth date is made up of three parts -- the month, day, and year -- and your Life Path number is essentially a sum of these numbers.')
     print('Please enter your birthday starting with the Year, Month then Day as prompted')
-    print('First step is to reduce the numbers in your month. If you were born before November (11th month) your number will will stay the same')
+    print('First step is to reduce the numbers in your day. month then year. If you were born before November (11th month) your number will will stay the same')
 
 
-    
+    # This will get the month of birth and convert it to its number by checking what index it matches to in the list above and cross referencing that to the index and adding 1. It adds 1 because the list starts at 0 and we want to make sure we get the number of the month.  
+
+    dayOfBirth = int(input('Please enter the day of your birth e.g if you were both on the 12th please enter "12" '))
+    dayNum = addNumbers(dayOfBirth)
+    print(f'Your day number is {dayNum}')
+
     playerBirthMonth = input('Please enter what month you were born ').capitalize()
     monthNum = calcMonth(playerBirthMonth)
     print(f'Your month number is {monthNum}')
@@ -120,11 +127,7 @@ def intro():
     yearNum = calcYear(playerBirthYear)
     print(f'Your year number is {yearNum}')
 
-    # This will get the month of birth and convert it to its number by checking what index it matches to in the list above and cross referencing that to the index and adding 1. It adds 1 because the list starts at 0 and we want to make sure we get the number of the month.  
 
-    dayOfBirth = int(input('Please enter the day of your birth e.g if you were both on the 12th please enter "12" '))
-    dayNum = addNumbers(dayOfBirth)
-    print(f'Your day number is {dayNum}')
     
 
     lifePathNumberPreliminary = dayNum + monthNum + yearNum
