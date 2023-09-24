@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 months = [
     "January",
@@ -17,10 +18,13 @@ months = [
 
 
 def writeFile(dictionary, lifepathNum):
+    currentTime = datetime.now().strftime("The date is %A %m %Y and the time is %H:%M:%S")
     f = open("NumerologyResult.txt", "w")
-    f.write("Welcome to your numerology result! \n")
-    f.write(f"Your life path number is {lifepathNum} \n")
-    f.write(dictionary)
+    f.write("Welcome to your numerology result! \n\n")
+    f.write(f"Your life path number is {lifepathNum} \n\n")
+    f.write(f'{dictionary} \n\n')
+    f.write(currentTime)
+
 
 
 url = "https://horoscope-astrology.p.rapidapi.com/numerology"
@@ -32,6 +36,11 @@ headers = {
 }
 
 # Created this function to take the numbers passed into it and change them into a list that we can add together 
+
+# def getCurrentTime():
+#     currentTime = datetime.now().strftime("The date is %A %m %Y and the time is %H:%M:%S")
+#     print(currentTime)
+# getCurrentTime()
 
 def numerologyNumber(num):
     querystring = {"n":{num}}
@@ -100,8 +109,10 @@ def intro():
     print('Your birth date is made up of three parts -- the month, day, and year -- and your Life Path number is essentially a sum of these numbers.')
     print('Please enter your birthday starting with the Year, Month then Day as prompted')
     print('First step is to reduce the numbers in your month. If you were born before November (11th month) your number will will stay the same')
+
+
     
-    playerBirthMonth = input('Please enter what month you were both ').capitalize()
+    playerBirthMonth = input('Please enter what month you were born ').capitalize()
     monthNum = calcMonth(playerBirthMonth)
     print(f'Your month number is {monthNum}')
 
