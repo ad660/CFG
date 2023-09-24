@@ -39,10 +39,6 @@ headers = {
 
 # Created this function to take the numbers passed into it and change them into a list that we can add together 
 
-# def getCurrentTime():
-#     currentTime = datetime.now().strftime("The date is %A %m %Y and the time is %H:%M:%S")
-#     print(currentTime)
-# getCurrentTime()
 
 def numerologyNumber(num):
     querystring = {"n":{num}}
@@ -76,12 +72,8 @@ def calcYear(birth_year):
 
         # return totalSum
 
-# calcYear('1995')
+# calcYear('1995') - This can be used to test the function
     
-
-
-# def simpleMonth(janToOctober):
-#     monthResult =  
 
 
 def calcMonth(monthofBirth):
@@ -128,8 +120,6 @@ def intro():
     print(f'Your year number is {yearNum}')
 
 
-    
-
     lifePathNumberPreliminary = dayNum + monthNum + yearNum
     lifePathNumber = addNumbers(lifePathNumberPreliminary)
 
@@ -140,8 +130,3 @@ def intro():
 
 intro()
 
-
-
-
-
-# pickNumber()
